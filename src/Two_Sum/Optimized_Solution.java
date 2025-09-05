@@ -1,20 +1,18 @@
+import java.util.HashMap;
+
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        HashMap <Integer, Integer> map =  new HashMap<Integer,Integer>();
-        int [] ans =  new int [2];
-        for(int i=0;i<nums.length;i++){
-            if(map.containsKey(target - nums[i])){
-                ans[0] = Math.min(i, map.get(target - nums[i]));
-                ans [1] = Math.max(i, map.get(target - nums[i]));
-
-                return ans;
-            }
-
-            else{
-                map.put(nums[i], i);
+        HashMap<Integer, Integer> numberToIndexMap = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (numberToIndexMap.containsKey(target - nums[i])) {
+                int[] res = new int[2];
+                res[0] = numberToIndexMap.get(target - nums[i]);
+                res[1] = i;
+                return res;
+            } else {
+                numberToIndexMap.put(nums[i], i);
             }
         }
-
-        return ans;
+        return new int[2];
     }
 }

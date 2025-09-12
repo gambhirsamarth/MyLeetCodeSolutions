@@ -9,6 +9,8 @@ class Solution {
          * remaining string has 1 vowel,
          * bob can only remove a consonant as 1 vowel is not even.
          * again ALice's turn - she removes the last remaining vowel and wins.
+         * 
+         * Bob can only win if there are no vowels in string
          */
 
         return s.contains("a") || s.contains("e") || s.contains("i") || s.contains("o") | s.contains("u");
